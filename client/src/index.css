@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --teal: 187 44% 52%;
+    --green: 141 48% 54%;
+    --coral: 3 89% 70%;
+    --dark: 210 25% 8%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-[#101820];
+  }
+}
+
+.bg-gradient-brand {
+  @apply bg-gradient-to-r from-[#4EB8BD] to-[#4ACB6B];
+}
+
+.text-gradient-brand {
+  @apply bg-gradient-to-r from-[#4EB8BD] to-[#4ACB6B] text-transparent bg-clip-text;
+}
+
+.accent-teal {
+  @apply text-[#4EB8BD];
+}
+
+.accent-green {
+  @apply text-[#4ACB6B];
+}
+
+.accent-coral {
+  @apply text-[#FC756A];
+}
