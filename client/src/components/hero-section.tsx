@@ -72,6 +72,7 @@ export function HeroSection() {
                 into results
               </span>
             </motion.h1>
+
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -80,6 +81,7 @@ export function HeroSection() {
             >
               Global expertise. Local Impact. Marketing that moves.
             </motion.p>
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -90,15 +92,16 @@ export function HeroSection() {
                 size="lg" 
                 className="bg-white text-[#1e486b] hover:bg-white/90 gap-2"
                 onClick={() => {
-                  const contactSection = document.getElementById('contact');
-                  if (contactSection) {
-                    contactSection.scrollIntoView({ behavior: 'smooth' });
+                  const section = document.getElementById('our-name');
+                  if (section) {
+                    section.scrollIntoView({ behavior: 'smooth' });
                   }
                 }}
               >
-                Schedule a Call <ArrowRight className="h-4 w-4" />
+                Learn More <ArrowRight className="h-4 w-4" />
               </Button>
             </motion.div>
+
           </div>
         </div>
       </div>
