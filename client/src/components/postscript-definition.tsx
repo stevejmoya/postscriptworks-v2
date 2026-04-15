@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export function PostscriptDefinition() {
   return (
-    <section className="py-12 bg-gradient-to-r from-[#f8fcf9] to-[#f8fafc]">
+    <section id="our-name" className="py-12 bg-gradient-to-r from-[#f8fcf9] to-[#f8fafc]">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
