@@ -2,7 +2,6 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { insertLeadSchema, type InsertLead } from "@shared/schema";
 import { useMutation } from "@tanstack/react-query";
-import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 import {
   Form,
@@ -18,6 +17,7 @@ import { Button } from "@/components/ui/button";
 
 export function ContactForm() {
   const { toast } = useToast();
+
   const form = useForm<InsertLead>({
     resolver: zodResolver(insertLeadSchema),
     defaultValues: {
@@ -30,8 +30,24 @@ export function ContactForm() {
   });
 
   const mutation = useMutation({
-    mutationFn: (data: InsertLead) =>
-      apiRequest("POST", "/api/leads", data),
+    mutationFn: async (data: InsertLead) => {
+      const response = await fetch("https://formspree.io/f/mgorozzg", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result?.errors?.[0]?.message || "Form submission failed");
+      }
+
+      return result;
+    },
     onSuccess: () => {
       toast({
         title: "Success!",
@@ -39,11 +55,11 @@ export function ContactForm() {
       });
       form.reset();
     },
-    onError: (error) => {
+    onError: (error: Error) => {
       toast({
         variant: "destructive",
         title: "Error",
-        description: error.message,
+        description: error.message || "Something went wrong. Please try again.",
       });
     },
   });
@@ -67,6 +83,7 @@ export function ContactForm() {
             </FormItem>
           )}
         />
+
         <FormField
           control={form.control}
           name="email"
@@ -74,12 +91,17 @@ export function ContactForm() {
             <FormItem>
               <FormLabel>Email</FormLabel>
               <FormControl>
-                <Input placeholder="john@company.com" {...field} />
+                <Input
+                  type="email"
+                  placeholder="john@company.com"
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
+
         <FormField
           control={form.control}
           name="phone"
@@ -93,6 +115,7 @@ export function ContactForm() {
             </FormItem>
           )}
         />
+
         <FormField
           control={form.control}
           name="company"
@@ -106,6 +129,7 @@ export function ContactForm() {
             </FormItem>
           )}
         />
+
         <FormField
           control={form.control}
           name="message"
@@ -122,6 +146,7 @@ export function ContactForm() {
             </FormItem>
           )}
         />
+
         <Button
           type="submit"
           className="w-full"
