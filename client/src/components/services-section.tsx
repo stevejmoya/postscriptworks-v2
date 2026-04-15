@@ -12,13 +12,13 @@ const services = [
   {
     title: "Strategy Development",
     description:
-      "We craft comprehensive marketing strategies aligned with your business goals.",
+      "We turn business goals into clear, executable strategies that align teams, focus priorities, and drive measurable growth.",
     icon: Target,
   },
   {
-    title: "Brand Building",
+    title: "AI-Powered Workflows",
     description:
-      "Create a strong, memorable brand identity that resonates with your audience.",
+      "Automate repetitive tasks, streamline operations, and connect your systems so your team can focus on what actually drives growth.",
     icon: Sparkles,
   },
   {
@@ -62,7 +62,9 @@ export function ServicesSection() {
                   <CardTitle>{service.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription className="text-[#101820]/70">{service.description}</CardDescription>
+                  <CardDescription className="text-[#101820]/70">
+                    {service.description}
+                  </CardDescription>
                 </CardContent>
               </Card>
             </motion.div>
