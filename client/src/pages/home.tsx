@@ -1,69 +1,112 @@
-import { HeroSection } from "@/components/hero-section";
-import { ServicesSection } from "@/components/services-section";
-import { AboutSection } from "@/components/about-section";
-import { ChallengesSection } from "@/components/challenges-section";
-import { ContactForm } from "@/components/contact-form";
-import { HowWeWorkSection } from "@/components/how-we-work-section";
-import { DidYouKnowSection } from "@/components/did-you-know-section";
-import { WhereWeComeIn } from "@/components/where-we-come-in";
-import { WhatWeDoSection } from "@/components/what-we-do-section";
-import { PostscriptDefinition } from "@/components/postscript-definition";
-
 import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
+import { PSWLogo } from "./psw-logo";
 
-export default function Home() {
+// Custom background component with quotation marks
+const BackgroundLogo = () => (
+  <div className="absolute inset-0 -z-10 overflow-hidden flex items-center justify-center">
+    <div className="relative w-full h-full">
+      {/* Large quotes background */}
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 0.05, scale: 1 }}
+        transition={{ duration: 1.5, ease: "easeOut" }}
+        className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+      >
+        {/* Giant quotation marks */}
+        <img 
+          src="/assets/quotes-bg.png" 
+          alt="Background quotation marks"
+          className="opacity-30 w-[500px]"
+          style={{ transform: "scale(4)", filter: "brightness(0) invert(1)" }}
+        />
+      </motion.div>
+      
+      {/* Floating shapes */}
+      <motion.div 
+        initial={{ opacity: 0, x: -100 }}
+        animate={{ opacity: 0.15, x: 0 }}
+        transition={{ duration: 2, delay: 0.5 }}
+        className="absolute top-[20%] left-[10%]"
+      >
+        <div className="w-40 h-40 rounded-full bg-white" />
+      </motion.div>
+      
+      <motion.div 
+        initial={{ opacity: 0, y: 100 }}
+        animate={{ opacity: 0.15, y: 0 }}
+        transition={{ duration: 2, delay: 0.8 }}
+        className="absolute bottom-[15%] right-[20%]"
+      >
+        <div className="w-32 h-32 rounded-full bg-white" />
+      </motion.div>
+      
+      <motion.div 
+        initial={{ opacity: 0, x: 100 }}
+        animate={{ opacity: 0.15, x: 0 }}
+        transition={{ duration: 2, delay: 1.1 }}
+        className="absolute top-[35%] right-[15%]"
+      >
+        <div className="w-24 h-24 rounded-full bg-white" />
+      </motion.div>
+    </div>
+  </div>
+);
+
+export function HeroSection() {
   return (
-    <div>
-      {/* ===== 1. INTRODUCTION: Who We Are ===== */}
-      <HeroSection />
-      <PostscriptDefinition />
-      <AboutSection />
-      
-      {/* ===== 2. OFFERINGS: What We Provide ===== */}
-      <WhatWeDoSection />
-      <ServicesSection />
-      <HowWeWorkSection />
-      
-      {/* ===== 3. VALUE PROPOSITION: Why Choose Us ===== */}
-      <ChallengesSection />
-      <DidYouKnowSection />
-      <WhereWeComeIn />
-      
-      {/* ===== 4. CALL TO ACTION: Get in Touch ===== */}
-      <section id="contact" className="py-24 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="relative"
-            >
-              <div className="bg-[#f4e4d9] rounded-lg p-6 md:p-8">
-                <img
-                  src="/images/red-shoes.png"
-                  alt="Red shoes on a path with a forward arrow, representing the journey ahead"
-                  className="w-full h-auto rounded-md shadow-md object-cover"
-                  style={{ aspectRatio: "4/3" }}
-                />
-              </div>
-              <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-[#1e486b] rounded-full hidden md:block" />
-            </motion.div>
+    <section className="min-h-screen relative overflow-hidden bg-gradient-to-bl from-[#4ACB6B] to-[#1e486b]">
+      <div className="flex items-center justify-center h-screen">
+        <BackgroundLogo />
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-3xl mx-auto text-center">
             
-            <div>
-              <div className="text-center mb-10">
-                <h2 className="text-4xl md:text-5xl font-bold mb-4">Let's Get Started</h2>
-                <p className="text-xl text-gray-700 leading-relaxed">
-                  Marketing doesn't have to be overwhelming.
-                  Share a few details below, and we'll set up a call to see how our team can help.
-                </p>
-              </div>
-              <ContactForm />
-            </div>
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="text-4xl md:text-6xl font-bold leading-tight mb-6 text-white"
+            >
+              We help businesses transform ideas{" "}
+              <span className="text-white">
+                into results
+              </span>
+            </motion.h1>
+
+            {/* 🔥 UPDATED TAGLINE */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-xl text-white/90 mb-8"
+            >
+              Global minds. Local impact. Strategy that delivers.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="flex justify-center"
+            >
+              <Button 
+                size="lg" 
+                className="bg-white text-[#1e486b] hover:bg-white/90 gap-2"
+                onClick={() => {
+                  const section = document.getElementById('our-name');
+                  if (section) {
+                    section.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+              >
+                Learn More <ArrowRight className="h-4 w-4" />
+              </Button>
+            </motion.div>
+
           </div>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
   );
 }
