@@ -79,7 +79,7 @@ export function HeroSection() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-xl text-white/90 mb-8"
             >
-              Global expertise. Local Impact. Marketing that moves.
+              Global expertise. Local Impact. Strategy that delivers.
             </motion.p>
 
             <motion.div
