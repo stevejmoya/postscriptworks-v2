@@ -28,8 +28,7 @@ export function PostscriptDefinition() {
               These insights hold nuggets of learning, analysis, and recommendations on how best to move forward.
             </p>
             <p>
-              At Postscriptworks, we provide clarity and actionable strategies to drive innovation and growth for 
-              organizations that want to make a difference."
+              At Postscriptworks, we provide clarity and actionable strategies to drive innovation and growth for organizations that aim to move the needle from strategy to action."
             </p>
           </blockquote>
           
