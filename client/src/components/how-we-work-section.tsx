@@ -1,79 +1,81 @@
 import { motion } from "framer-motion";
 
+const steps = [
+  {
+    num: "01",
+    title: "Discovery intake",
+    desc: "A focused assessment covering your lead generation, internal workflows, tools, bottlenecks, and speed to revenue. Takes 10 minutes. Surfaces what usually takes weeks to find.",
+  },
+  {
+    num: "02",
+    title: "Diagnostic assessment",
+    desc: "We analyze your responses and produce a scored report: where things are breaking, what it is costing you in lost time and revenue, and a prioritized view of what to fix first.",
+  },
+  {
+    num: "03",
+    title: "Solution architecture",
+    desc: "We translate the diagnostic into a concrete plan — the right systems, the right team, the right sequence. Advisory first. Solution second. Execution third.",
+  },
+  {
+    num: "04",
+    title: "Implementation and oversight",
+    desc: "We lead the build — CRM configuration, automation pipelines, reporting dashboards — and stay accountable until the system is running and your team owns it.",
+  },
+];
+
 export function HowWeWorkSection() {
-  const steps = [
-    {
-      number: 1,
-      title: "Discovery & Strategy",
-      description: "We begin by understanding your business, goals, and target audience to develop a tailored strategy.",
-      bgColor: "bg-[#1e486b]"
-    },
-    {
-      number: 2,
-      title: "Creative Development",
-      description: "Our cross-disciplined team collaborates to create compelling campaigns that align with your brand.",
-      bgColor: "bg-[#4ACB6B]"
-    },
-    {
-      number: 3,
-      title: "Global Execution",
-      description: "We leverage our global team to execute campaigns efficiently across different markets and time zones.",
-      bgColor: "bg-[#1e486b]"
-    },
-    {
-      number: 4,
-      title: "Measurement & Optimization",
-      description: "We continuously monitor performance and optimize campaigns to drive the best possible results.",
-      bgColor: "bg-[#4ACB6B]"
-    }
-  ];
-
   return (
-    <section className="py-20 bg-gray-50">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-10">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">How We Work</h2>
-          <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-            Our global team works across time zones to ensure efficient delivery and exceptional results.
-          </p>
-        </div>
+    <section id="approach" className="py-20 px-6">
+      <div className="container mx-auto max-w-6xl">
+        <div className="bg-[#F5F7FA] rounded-[20px] p-14">
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-12">
-          <div>            
-            <div className="space-y-8">
-              {steps.map((step, index) => (
-                <motion.div
-                  key={step.number}
-                  initial={{ opacity: 0, x: -50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: 0.1 * (index + 1) }}
-                  viewport={{ once: true }}
-                  className="flex items-start gap-4"
-                >
-                  <div className={`${step.bgColor} text-white rounded-full w-12 h-12 flex items-center justify-center flex-shrink-0`}>
-                    <span className="text-xl font-bold">{step.number}</span>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold mb-2">{step.title}</h3>
-                    <p className="text-gray-600">{step.description}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-          
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7 }}
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="rounded-2xl overflow-hidden bg-gradient-to-r from-[#1e486b] via-[#17606f] to-[#1a9764] aspect-square relative hidden lg:block"
           >
-            {/* Circular overlays */}
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[70%] h-[70%] rounded-full bg-white opacity-10"></div>
-            <div className="absolute top-[35%] right-[25%] w-[40%] h-[40%] rounded-full bg-white opacity-10"></div>
-            <div className="absolute top-[30%] left-[30%] w-[25%] h-[25%] rounded-full bg-white opacity-10"></div>
+            <p className="text-[11px] font-medium tracking-[0.12em] uppercase text-[#00B09B] mb-4">
+              How every engagement starts
+            </p>
+            <h2 className="font-display text-[clamp(24px,3vw,36px)] font-bold text-[#1A2233] leading-[1.2] mb-4 max-w-xl">
+              Understanding your business is the work. Everything else follows.
+            </h2>
+            <p className="text-[15px] leading-[1.85] text-gray-500 font-light max-w-2xl mb-10">
+              Before we recommend anything, we run a structured discovery process
+              that surfaces the gaps your team cannot clearly see from the inside.
+              It turns messy business reality into a clear picture of where you are
+              losing time, money, and momentum.
+            </p>
           </motion.div>
+
+          <div className="flex flex-col">
+            {steps.map((step, i) => (
+              <motion.div
+                key={step.num}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                viewport={{ once: true }}
+                className={`grid grid-cols-[56px_1fr] gap-2 py-6 ${
+                  i < steps.length - 1 ? "border-b border-gray-200" : ""
+                }`}
+              >
+                <span className="font-display text-[13px] font-bold text-[#00B09B] pt-0.5">
+                  {step.num}
+                </span>
+                <div>
+                  <h3 className="text-[16px] font-medium text-[#1A2233] mb-1.5">
+                    {step.title}
+                  </h3>
+                  <p className="text-[14px] leading-[1.75] text-gray-500 font-light">
+                    {step.desc}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
         </div>
       </div>
     </section>
