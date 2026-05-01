@@ -1,117 +1,89 @@
-import { Link, useLocation } from "wouter";
-import { Button } from "@/components/ui/button";
-import { Menu } from "lucide-react";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { useState, useEffect } from "react";
-import { PSWLogo } from "./psw-logo";
+import { PswLogo } from "@/components/psw-logo";
 
 export function Navbar() {
-  const [open, setOpen] = useState(false);
-  const [location] = useLocation();
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
-  // Smooth scroll function for home page sections
-  const scrollToSection = (id: string) => {
-    if (location !== "/") {
-      // If not on home page, navigate to home first
-      window.location.href = `/#${id}`;
-      return;
-    }
-    
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
-  // Handle "Schedule a Call" button click - scroll to contact form
-  const handleScheduleCall = () => {
-    scrollToSection("contact");
-    setOpen(false);
-  };
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const links = [
-    { id: null, href: "/", label: "Home" },
-    { id: "about", href: "/", label: "About" },
-    { id: "work", href: "/", label: "Work" },
-    { id: "services", href: "/", label: "Services" },
-    { id: "contact", href: "/", label: "Contact" },
-    { id: null, href: "/careers", label: "Careers" },
+    { label: "About", href: "#about" },
+    { label: "Approach", href: "#approach" },
+    { label: "Services", href: "#services" },
+    { label: "Contact", href: "#contact" },
   ];
 
   return (
-    <nav className="fixed top-0 w-full bg-background/80 backdrop-blur-sm z-50 border-b">
-      <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-        <Link href="/">
-          <div className="flex items-center hover:opacity-90 transition-opacity cursor-pointer">
-            <PSWLogo />
-          </div>
-        </Link>
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
+        scrolled ? "bg-white/95 backdrop-blur-md shadow-sm" : "bg-white"
+      } border-b border-gray-100`}
+    >
+      <nav className="container mx-auto px-6 h-[68px] flex items-center justify-between gap-6">
+        <a href="/" className="flex-shrink-0">
+          <PswLogo />
+        </a>
 
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-6">
-          {links.map((link) => (
-            <div key={link.label}>
-              {link.id ? (
-                <span
-                  className="text-[#101820]/80 hover:text-[#101820] transition-colors cursor-pointer"
-                  onClick={() => scrollToSection(link.id as string)}
-                >
-                  {link.label}
-                </span>
-              ) : (
-                <Link
-                  href={link.href}
-                  className="text-[#101820]/80 hover:text-[#101820] transition-colors cursor-pointer"
-                >
-                  {link.label}
-                </Link>
-              )}
-            </div>
+        {/* Desktop links */}
+        <div className="hidden md:flex items-center gap-9">
+          {links.map(({ label, href }) => (
+            <a
+              key={label}
+              href={href}
+              className="text-sm text-gray-500 hover:text-[#1A2233] transition-colors duration-150"
+            >
+              {label}
+            </a>
           ))}
         </div>
 
-        {/* Mobile Navigation */}
-        <Sheet open={open} onOpenChange={setOpen}>
-          <SheetTrigger asChild className="md:hidden">
-            <Button variant="ghost" size="icon">
-              <Menu className="h-6 w-6" />
-            </Button>
-          </SheetTrigger>
-          <SheetContent>
-            <div className="flex flex-col gap-4 mt-8">
-              {links.map((link) => (
-                <div key={link.label}>
-                  {link.id ? (
-                    <span
-                      className="text-[#101820]/80 hover:text-[#101820] transition-colors cursor-pointer"
-                      onClick={() => {
-                        scrollToSection(link.id as string);
-                        setOpen(false);
-                      }}
-                    >
-                      {link.label}
-                    </span>
-                  ) : (
-                    <Link
-                      href={link.href}
-                      className="text-[#101820]/80 hover:text-[#101820] transition-colors cursor-pointer"
-                      onClick={() => setOpen(false)}
-                    >
-                      {link.label}
-                    </Link>
-                  )}
-                </div>
-              ))}
-              <Button 
-                className="w-full bg-[#4ACB6B] hover:bg-[#42b863] text-white"
-                onClick={handleScheduleCall}
-              >
-                Schedule a Call
-              </Button>
-            </div>
-          </SheetContent>
-        </Sheet>
-      </div>
-    </nav>
+        {/* CTA */}
+        <a
+          href="#contact"
+          className="hidden md:inline-block flex-shrink-0 px-5 py-2.5 bg-[#1A2233] text-white text-sm font-medium rounded-[9px] hover:bg-[#00B09B] transition-colors duration-150"
+        >
+          Start diagnostic
+        </a>
+
+        {/* Mobile menu button */}
+        <button
+          className="md:hidden flex flex-col gap-1.5 p-2"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle menu"
+        >
+          <span className={`block w-5 h-0.5 bg-[#1A2233] transition-all duration-200 ${menuOpen ? "rotate-45 translate-y-2" : ""}`} />
+          <span className={`block w-5 h-0.5 bg-[#1A2233] transition-all duration-200 ${menuOpen ? "opacity-0" : ""}`} />
+          <span className={`block w-5 h-0.5 bg-[#1A2233] transition-all duration-200 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
+        </button>
+      </nav>
+
+      {/* Mobile menu */}
+      {menuOpen && (
+        <div className="md:hidden bg-white border-t border-gray-100 px-6 py-4 flex flex-col gap-4">
+          {links.map(({ label, href }) => (
+            <a
+              key={label}
+              href={href}
+              className="text-sm text-gray-600 hover:text-[#1A2233]"
+              onClick={() => setMenuOpen(false)}
+            >
+              {label}
+            </a>
+          ))}
+          <a
+            href="#contact"
+            className="inline-block text-center px-5 py-2.5 bg-[#1A2233] text-white text-sm font-medium rounded-[9px]"
+            onClick={() => setMenuOpen(false)}
+          >
+            Start diagnostic
+          </a>
+        </div>
+      )}
+    </header>
   );
 }
