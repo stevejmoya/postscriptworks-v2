@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { PswLogo } from "@/components/psw-logo";
+import { PSWLogo } from "@/components/psw-logo";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
