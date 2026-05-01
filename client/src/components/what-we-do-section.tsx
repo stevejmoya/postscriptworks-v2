@@ -1,61 +1,71 @@
 import { motion } from "framer-motion";
 
+const pillars = [
+  {
+    label: "Advisory first",
+    title: "Understand the real problem",
+    desc: "We take time to find what is actually breaking — not the surface symptoms, but the underlying gaps costing you time, money, and momentum.",
+  },
+  {
+    label: "Solution second",
+    title: "Design the right answer",
+    desc: "We design a solution that fits your actual situation — your team, your budget, your constraints — not a package built for someone else.",
+  },
+  {
+    label: "Execution third",
+    title: "Build it and own it",
+    desc: "We lead the implementation and train your team to run it confidently. The goal is always a system that works without depending on us.",
+  },
+];
+
 export function WhatWeDoSection() {
   return (
-    <section id="work" className="py-20 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <section className="py-20 px-6">
+      <div className="container mx-auto max-w-6xl">
+        <div className="bg-[#1A2233] rounded-[20px] p-14">
+
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="space-y-6"
           >
-            <div className="text-center mb-10">
-              <h2 className="text-4xl md:text-5xl font-bold mb-4">What We Do</h2>
-            </div>
-            
-            <div className="text-gray-700 space-y-4">
-              <p>
-                Postscriptworks is a global marketing consultancy that turns bold ideas into real results. 
-                We act as an outsourced extension of your team, ideal for companies without dedicated 
-                internal marketing expertise.
-              </p>
-              
-              <p>
-                Our team of advisors, strategists, designers, project managers, and developers brings deep 
-                expertise across disciplines to every project. We are more than partners; we are the secret 
-                sauce behind the scenes—trusted, proactive, and genuinely enjoyable to work with.
-              </p>
-              
-              <p>
-                Powered by a remote-first model, we move fast and work across time zones, so we're always 
-                making progress—closer to launch, closer to impact.
-              </p>
-            </div>
+            <p className="text-[11px] font-medium tracking-[0.12em] uppercase text-[#00B09B] mb-4">
+              Our philosophy
+            </p>
+            <h2 className="font-display text-[clamp(24px,3vw,40px)] font-bold text-white leading-[1.15] mb-4">
+              Good advice starts<br />with good questions.
+            </h2>
+            <p className="text-[15px] leading-[1.8] text-slate-400 font-light max-w-xl mb-10">
+              Every engagement follows the same sequence — not as a process for
+              its own sake, but because it is the only way to build the right
+              solution instead of a fast one.
+            </p>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7 }}
-            viewport={{ once: true }}
-            className="relative"
-          >
-            <div className="relative rounded-lg overflow-hidden shadow-xl">
-              <img
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop"
-                alt="Global team of marketing experts"
-                className="w-full h-auto rounded-lg object-cover"
-                style={{ aspectRatio: "4/3" }}
-              />
-              
-              {/* Decorative elements */}
-              <div className="absolute -z-10 -right-8 top-1/2 transform -translate-y-1/2 w-16 h-64 bg-gradient-to-r from-[#4ACB6B] to-[#1e486b] rounded-full opacity-70"></div>
-              <div className="absolute -z-10 -bottom-8 left-1/4 w-32 h-32 bg-[#4ACB6B] rounded-full opacity-20"></div>
-            </div>
-          </motion.div>
+          <div className="grid md:grid-cols-3 gap-4">
+            {pillars.map(({ label, title, desc }, i) => (
+              <motion.div
+                key={label}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                viewport={{ once: true }}
+                className="p-7 bg-white/[0.06] rounded-2xl border border-white/10"
+              >
+                <p className="text-[10px] font-medium tracking-[0.1em] uppercase text-[#00B09B] mb-2.5">
+                  {label}
+                </p>
+                <h3 className="font-display text-[16px] font-bold text-white mb-2.5 leading-snug">
+                  {title}
+                </h3>
+                <p className="text-[13px] leading-[1.7] text-slate-400 font-light">
+                  {desc}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+
         </div>
       </div>
     </section>
