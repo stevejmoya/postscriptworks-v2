@@ -16,7 +16,7 @@ export function WhatWeDoSection() {
           <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
             <p className="text-[11px] font-medium tracking-[0.12em] uppercase text-[#00B09B] mb-4">Our philosophy</p>
             <h2 className="text-white mb-4" style={{ ...dmSans, fontSize: "clamp(26px, 3vw, 42px)", fontWeight: 600, lineHeight: 1.25 }}>
-              Good advice starts<br />with good questions.
+              Good advice starts<br />with better questions.
             </h2>
             <p className="text-[15px] leading-[1.8] text-slate-400 font-light max-w-xl mb-10">
               Every engagement follows the same sequence — not as a process for its own sake, but because it is the only way to build the right solution instead of a fast one.
