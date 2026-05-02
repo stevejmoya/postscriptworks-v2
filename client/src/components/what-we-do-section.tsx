@@ -21,7 +21,7 @@ const pillars = [
 export function WhatWeDoSection() {
   return (
     <section className="py-20 px-6">
-      <div className="container mx-auto max-w-6xl">
+      <div className="max-w-5xl mx-auto">
         <div className="bg-[#1A2233] rounded-[20px] p-14">
 
           <motion.div
@@ -33,7 +33,14 @@ export function WhatWeDoSection() {
             <p className="text-[11px] font-medium tracking-[0.12em] uppercase text-[#00B09B] mb-4">
               Our philosophy
             </p>
-            <h2 className="font-display text-[clamp(24px,3vw,40px)] font-bold text-white leading-[1.15] mb-4">
+            <h2
+              className="font-bold text-white mb-4 pb-2"
+              style={{
+                fontFamily: "'DM Sans', sans-serif",
+                fontSize: "clamp(28px, 3.5vw, 44px)",
+                lineHeight: 1.25,
+              }}
+            >
               Good advice starts<br />with good questions.
             </h2>
             <p className="text-[15px] leading-[1.8] text-slate-400 font-light max-w-xl mb-10">
@@ -56,7 +63,14 @@ export function WhatWeDoSection() {
                 <p className="text-[10px] font-medium tracking-[0.1em] uppercase text-[#00B09B] mb-2.5">
                   {label}
                 </p>
-                <h3 className="font-display text-[16px] font-bold text-white mb-2.5 leading-snug">
+                <h3
+                  className="font-bold text-white mb-2.5 pb-1"
+                  style={{
+                    fontFamily: "'DM Sans', sans-serif",
+                    fontSize: "17px",
+                    lineHeight: 1.3,
+                  }}
+                >
                   {title}
                 </h3>
                 <p className="text-[13px] leading-[1.7] text-slate-400 font-light">
