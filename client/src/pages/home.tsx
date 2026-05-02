@@ -10,6 +10,8 @@ import { WhatWeDoSection } from "@/components/what-we-do-section";
 import { PostscriptDefinition } from "@/components/postscript-definition";
 import { motion } from "framer-motion";
 
+const dmSans = { fontFamily: "'DM Sans', sans-serif" };
+
 export default function Home() {
   return (
     <div>
@@ -24,7 +26,7 @@ export default function Home() {
       <WhereWeComeIn />
 
       <section id="contact" className="py-20 px-6 bg-white">
-        <div className="container mx-auto max-w-6xl">
+        <div className="max-w-5xl mx-auto">
           <div className="grid md:grid-cols-2 border border-gray-200 rounded-[20px] overflow-hidden">
 
             <div className="relative min-h-[420px]">
@@ -40,10 +42,13 @@ export default function Home() {
                   transition={{ duration: 0.7 }}
                   viewport={{ once: true }}
                 >
-                  <h3 className="font-display text-[22px] font-bold text-white leading-snug mb-2">
+                  <h3
+                    className="text-white mb-2"
+                    style={{ ...dmSans, fontSize: "22px", fontWeight: 600, lineHeight: 1.3 }}
+                  >
                     Let's find out where you're<br />leaving results on the table.
                   </h3>
-                  <p className="text-[14px] text-white/70 leading-relaxed">
+                  <p className="text-[14px] text-white/70 leading-relaxed font-light">
                     It takes 10 minutes to start. It changes how you see your business.
                   </p>
                 </motion.div>
@@ -54,7 +59,10 @@ export default function Home() {
               <p className="text-[11px] font-medium tracking-[0.12em] uppercase text-[#00B09B] mb-3">
                 Ready to start
               </p>
-              <h2 className="font-display text-[26px] font-bold text-[#1A2233] mb-8 leading-snug">
+              <h2
+                className="text-[#1A2233] mb-8"
+                style={{ ...dmSans, fontSize: "26px", fontWeight: 600, lineHeight: 1.3 }}
+              >
                 Start your free diagnostic
               </h2>
               <ContactForm />
