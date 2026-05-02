@@ -32,7 +32,7 @@ export function Navbar() {
   const links = [
     { id: null, href: "/", label: "Home" },
     { id: "about", href: "/", label: "About" },
-    { id: "work", href: "/", label: "Work" },
+    { id: "work", href: "/", label: "Approach" },
     { id: "services", href: "/", label: "Services" },
     { id: "contact", href: "/", label: "Contact" },
     { id: null, href: "/careers", label: "Careers" },
