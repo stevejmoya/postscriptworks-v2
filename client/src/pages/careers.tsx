@@ -14,13 +14,10 @@ export default function Careers() {
           >
             <h1 className="text-5xl font-bold mb-8 text-left">Join Our Team</h1>
             <p className="text-xl text-gray-700 mb-4 leading-relaxed">
-              At Postscriptworks, we're a crew of thinkers and doers—designers, writers, strategists, 
-              developers, and producers who live for the creative solve. We've worked across industries, 
-              time zones, and just about every digital platform you can name.
+              At Postscriptworks, we are a crew of thinkers and doers. Advisors, strategists, designers, writers, developers, and producers who live for the creative solve. We have worked across industries, time zones, and just about every digital platform you can name.
             </p>
             <p className="text-xl text-gray-700 mb-4 leading-relaxed">
-              What brings us together? A shared love for big ideas—and the thrill of turning them into 
-              campaigns that actually move the needle.
+              What brings us together? A shared love for big ideas and the thrill of turning them into results that actually move the needle.
             </p>
             <p className="text-xl text-gray-700 leading-relaxed mb-16">
               Got something brewing? We'd love to hear about it. Reach out and let's make something great together.
