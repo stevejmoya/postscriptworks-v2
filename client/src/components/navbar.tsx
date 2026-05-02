@@ -12,10 +12,11 @@ export function Navbar() {
   }, []);
 
   const links = [
-    { label: "About", href: "#about" },
-    { label: "Approach", href: "#approach" },
-    { label: "Services", href: "#services" },
-    { label: "Contact", href: "#contact" },
+    { label: "About", href: "#about", external: false },
+    { label: "Approach", href: "#approach", external: false },
+    { label: "Services", href: "#services", external: false },
+    { label: "Contact", href: "#contact", external: false },
+    { label: "Careers", href: "/careers", external: true },
   ];
 
   return (
@@ -29,8 +30,9 @@ export function Navbar() {
           <PSWLogo />
         </a>
 
+        {/* Desktop links */}
         <div className="hidden md:flex items-center gap-9">
-          {links.map(({ label, href }) => (
+          {links.map(({ label, href, external }) => (
             <a
               key={label}
               href={href}
@@ -41,6 +43,7 @@ export function Navbar() {
           ))}
         </div>
 
+        {/* CTA */}
         <a
           href="#contact"
           className="hidden md:inline-block flex-shrink-0 px-5 py-2.5 bg-[#1A2233] text-white text-sm font-medium rounded-[9px] hover:bg-[#00B09B] transition-colors duration-150"
@@ -48,6 +51,7 @@ export function Navbar() {
           Start diagnostic
         </a>
 
+        {/* Mobile menu button */}
         <button
           className="md:hidden flex flex-col gap-1.5 p-2"
           onClick={() => setMenuOpen(!menuOpen)}
@@ -59,6 +63,7 @@ export function Navbar() {
         </button>
       </nav>
 
+      {/* Mobile menu */}
       {menuOpen && (
         <div className="md:hidden bg-white border-t border-gray-100 px-6 py-4 flex flex-col gap-4">
           {links.map(({ label, href }) => (
