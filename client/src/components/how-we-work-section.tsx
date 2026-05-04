@@ -1,40 +1,155 @@
-import { motion } from "framer-motion";
+import { useState } from "react";
 
-const steps = [
-  { num: "01", title: "Discovery intake", desc: "A focused assessment covering your lead generation, internal workflows, tools, bottlenecks, and speed to revenue. Takes 10 minutes. Surfaces what usually takes weeks to find." },
-  { num: "02", title: "Diagnostic assessment", desc: "We analyze your responses and produce a scored report: where things are breaking, what it is costing you in lost time and revenue, and a prioritized view of what to fix first." },
-  { num: "03", title: "Solution architecture", desc: "We translate the diagnostic into a concrete plan — the right systems, the right team, the right sequence. Advisory first. Solution second. Execution third." },
-  { num: "04", title: "Implementation and oversight", desc: "We lead the build — CRM configuration, automation pipelines, reporting dashboards — and stay accountable until the system is running and your team owns it." },
+const phases = [
+  {
+    num: "01",
+    name: "Discovery intake",
+    desc: "A focused 10-minute assessment covering your lead generation, workflows, tools, and bottlenecks. Surfaces what usually takes weeks to find.",
+  },
+  {
+    num: "02",
+    name: "Diagnostic assessment",
+    desc: "We analyze your responses and return a scored report: where things are breaking, what it is costing you, and what to fix first.",
+  },
+  {
+    num: "03",
+    name: "Solution architecture",
+    desc: "We translate the diagnostic into a concrete plan. The right systems, the right team, the right sequence. Advisory first. Solution second. Execution third.",
+  },
+  {
+    num: "04",
+    name: "Implementation and oversight",
+    desc: "We lead the build and stay accountable until the system is running and your team owns it.",
+  },
 ];
 
-const dmSans = { fontFamily: "'DM Sans', sans-serif" };
+const bandColors = [
+  "#2ec4a9",
+  "#1da892",
+  "#164e63",
+  "#0f1f35",
+];
 
-export function HowWeWorkSection() {
+export default function EngagementPhases() {
+  const [openIndex, setOpenIndex] = useState(null);
+
+  const toggle = (i) => setOpenIndex(openIndex === i ? null : i);
+
   return (
-    <section id="approach" className="py-20 px-6">
-      <div className="max-w-5xl mx-auto">
-        <div className="bg-[#F5F7FA] rounded-[20px] p-14">
-          <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
-            <p className="text-[11px] font-medium tracking-[0.12em] uppercase text-[#00B09B] mb-4">How every engagement starts</p>
-            <h2 className="text-[#1A2233] mb-4" style={{ ...dmSans, fontSize: "clamp(24px, 2.8vw, 38px)", fontWeight: 600, lineHeight: 1.2 }}>
-              Understanding your business is the work.<br />Everything else follows.
-            </h2>
-            <p className="text-[15px] leading-[1.85] text-gray-500 font-light max-w-2xl mb-10">
-              Before we recommend anything, we run a structured discovery process that surfaces the gaps your team cannot clearly see from the inside. It turns messy business reality into a clear picture of where you are losing time, money, and momentum.
-            </p>
-          </motion.div>
-          <div className="flex flex-col">
-            {steps.map((step, i) => (
-              <motion.div key={step.num} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: i * 0.1 }} viewport={{ once: true }} className={`grid grid-cols-[56px_1fr] gap-2 py-6 ${i < steps.length - 1 ? "border-b border-gray-200" : ""}`}>
-                <span className="text-[13px] font-medium text-[#00B09B] pt-0.5" style={dmSans}>{step.num}</span>
-                <div>
-                  <h3 className="text-[#1A2233] mb-1.5" style={{ ...dmSans, fontSize: "16px", fontWeight: 600 }}>{step.title}</h3>
-                  <p className="text-[14px] leading-[1.75] text-gray-500 font-light">{step.desc}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
+    <section style={{ padding: "3rem 0" }}>
+      {/* Label */}
+      <p style={{
+        fontSize: "11px",
+        letterSpacing: "0.12em",
+        textTransform: "uppercase",
+        color: "#2ec4a9",
+        marginBottom: "0.75rem",
+      }}>
+        How every engagement starts
+      </p>
+
+      {/* Headline */}
+      <h2 style={{
+        fontSize: "clamp(1.75rem, 4vw, 2.5rem)",
+        fontWeight: 700,
+        color: "#0f1f35",
+        lineHeight: 1.2,
+        marginBottom: "0.75rem",
+      }}>
+        Understanding your business is the work.<br />
+        Everything else follows.
+      </h2>
+
+      {/* Subhead */}
+      <p style={{
+        fontSize: "15px",
+        color: "#6b7280",
+        lineHeight: 1.65,
+        maxWidth: "560px",
+        marginBottom: "2rem",
+      }}>
+        Before we recommend anything, we run a structured discovery process that finds what your team cannot see from the inside. Messy reality becomes a clear picture of where you are losing time, money, and momentum.
+      </p>
+
+      {/* Phase Bands */}
+      <div style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: "3px",
+        borderRadius: "14px",
+        overflow: "hidden",
+      }}>
+        {phases.map((phase, i) => {
+          const isOpen = openIndex === i;
+          return (
+            <div
+              key={i}
+              onClick={() => toggle(i)}
+              style={{
+                display: "flex",
+                alignItems: "stretch",
+                minHeight: isOpen ? "140px" : "72px",
+                cursor: "pointer",
+                background: bandColors[i],
+                transition: "min-height 0.32s ease",
+              }}
+            >
+              {/* Number */}
+              <span style={{
+                width: "54px",
+                flexShrink: 0,
+                display: "flex",
+                alignItems: "flex-start",
+                justifyContent: "center",
+                paddingTop: "22px",
+                fontSize: "11px",
+                fontWeight: 600,
+                letterSpacing: "0.06em",
+                color: "rgba(255,255,255,0.45)",
+              }}>
+                {phase.num}
+              </span>
+
+              {/* Body */}
+              <div style={{ flex: 1, padding: "20px 16px 20px 0" }}>
+                <p style={{
+                  fontSize: "15px",
+                  fontWeight: 600,
+                  color: "#fff",
+                  marginBottom: "4px",
+                }}>
+                  {phase.name}
+                </p>
+                <p style={{
+                  fontSize: "13px",
+                  lineHeight: 1.62,
+                  color: "rgba(255,255,255,0.85)",
+                  maxHeight: isOpen ? "120px" : "0",
+                  overflow: "hidden",
+                  opacity: isOpen ? 1 : 0,
+                  transition: "max-height 0.32s ease, opacity 0.25s ease",
+                  margin: 0,
+                }}>
+                  {phase.desc}
+                </p>
+              </div>
+
+              {/* Caret */}
+              <span style={{
+                flexShrink: 0,
+                paddingTop: "20px",
+                paddingRight: "18px",
+                fontSize: "18px",
+                color: "rgba(255,255,255,0.45)",
+                transform: isOpen ? "rotate(90deg)" : "rotate(0deg)",
+                transition: "transform 0.32s ease",
+                lineHeight: 1,
+              }}>
+                ›
+              </span>
+            </div>
+          );
+        })}
       </div>
     </section>
   );
