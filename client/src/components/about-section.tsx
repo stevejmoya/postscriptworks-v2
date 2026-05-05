@@ -134,7 +134,7 @@ export function AboutSection() {
             style={{ height: "380px" }}
           >
             <img
-              src="https://images.unsplash.com/photo-1556157382-97eda2f9e2bf?w=900&q=85&fit=crop"
+              src="/Steve_Presenting.png"
               alt="Stephen Moya presenting"
               className="w-full h-full object-cover object-[center_15%]"
             />
