@@ -57,9 +57,7 @@ export function AboutSection() {
           >
             <div className="text-[15px] leading-[1.85] text-gray-500 font-light space-y-5">
               <p>
-                We are a collective of cross-disciplined professionals — strategists, project managers,
-                designers, copywriters, producers, art directors, animators, illustrators, and developers.
-                Senior specialists assembled around each engagement based on what the work actually requires.
+                We are a collective of cross-disciplined professionals: strategists, project managers, designers, copywriters, producers, art directors, animators, illustrators, and developers. Senior specialists assembled around each engagement based on what the work actually requires.
               </p>
               <p>
                 Built for companies that cannot afford the overhead of a large agency but need something
@@ -104,7 +102,7 @@ export function AboutSection() {
             <p
               className="text-[11px] font-medium tracking-[0.12em] uppercase text-[#00B09B] mb-3"
             >
-              Founder and Head Client Partner
+              Founder and Managing Partner
             </p>
             <p
               className="text-[#1A2233] mb-4"
@@ -113,14 +111,11 @@ export function AboutSection() {
               Steve Moya
             </p>
             <p>
-              Steve has spent over 20 years inside marketing, strategy, and operations across
-              Fortune 500 brands and growth-stage companies. He has seen what breaks, what scales,
-              and what just looks good on a slide deck but never ships.
+              Steve has spent over 20 years in digital media sales, marketing, strategy, and operations, sitting inside Fortune 500 boardrooms and growth-stage pitches alike. He knows what breaks under pressure, what actually scales, and what just looks good on a slide deck but never ships.
+
             </p>
             <p>
-              Postscriptworks is the firm he built to bring that experience to the companies
-              that need it most — those ready to move beyond generic frameworks and build
-              something that actually works.
+              Postscriptworks is the firm he built to bring that experience to the companies that need it most. Not the ones chasing generic frameworks, but the ones ready to build something that actually works.
             </p>
           </div>
 
