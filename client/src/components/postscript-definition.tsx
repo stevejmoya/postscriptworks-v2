@@ -2,42 +2,51 @@ import { motion } from "framer-motion";
 
 export function PostscriptDefinition() {
   return (
-    <section id="our-name" className="py-12 bg-gradient-to-r from-[#f8fcf9] to-[#f8fafc]">
-      <div className="container mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="max-w-4xl mx-auto text-center"
-        >
-          <div className="relative mb-6">
-            <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t border-gray-300"></div>
-            </div>
-            <div className="relative flex justify-center">
-              <span className="bg-gradient-to-r from-[#f8fcf9] to-[#f8fafc] px-4 text-sm text-gray-500">
-                OUR NAME
-              </span>
-            </div>
-          </div>
-          
-          <blockquote className="text-lg md:text-xl italic text-gray-700 leading-relaxed px-6">
-            <p className="mb-4">
-              "A postscript is defined as adding new or expanded thought to existing context, ideas, or objectives. 
-              These insights hold nuggets of learning, analysis, and recommendations on how best to move forward.
+    <section className="px-6">
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,500&display=swap');
+        .psw-quote {
+          font-family: 'Playfair Display', serif;
+          font-style: italic;
+          font-weight: 400;
+          font-size: clamp(18px, 2vw, 22px);
+          line-height: 1.65;
+        }
+      `}</style>
+      <div className="max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-16 items-center py-14 border-t border-b border-gray-200">
+
+          <motion.blockquote
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: true }}
+            className="psw-quote text-[#1A2233] pl-6 border-l-[3px] border-[#00B09B]"
+            style={{ borderRadius: 0 }}
+          >
+            "A postscript adds new thought to existing context. We look at what
+            you have built, find what others have missed, and show you the
+            clearest path forward."
+          </motion.blockquote>
+
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            viewport={{ once: true }}
+          >
+            <p className="text-[11px] font-medium tracking-[0.12em] uppercase text-[#00B09B] mb-3">
+              Why Postscriptworks
             </p>
-            <p>
-              At Postscriptworks, we provide clarity and actionable strategies to drive innovation and growth for organizations that aim to move the needle from strategy to action."
+            <p className="text-[15px] leading-[1.85] text-gray-500 font-light">
+              Most advisors tell you what to do. Most agencies do what they are
+              told. We sit in between — we think strategically, then we build
+              the solution. We are the team you bring in when you need both
+              clarity and execution, not one or the other.
             </p>
-          </blockquote>
-          
-          <div className="mt-6 flex justify-center space-x-3">
-            <div className="h-1.5 w-20 bg-gradient-to-r from-[#4ACB6B] to-[#1e486b] rounded-full"></div>
-            <div className="h-1.5 w-8 bg-[#1e486b] rounded-full"></div>
-            <div className="h-1.5 w-4 bg-[#4ACB6B] rounded-full"></div>
-          </div>
-        </motion.div>
+          </motion.div>
+
+        </div>
       </div>
     </section>
   );

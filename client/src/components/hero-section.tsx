@@ -1,109 +1,95 @@
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
-import { PSWLogo } from "./psw-logo";
-
-// Custom background component with quotation marks
-const BackgroundLogo = () => (
-  <div className="absolute inset-0 -z-10 overflow-hidden flex items-center justify-center">
-    <div className="relative w-full h-full">
-      {/* Large quotes background */}
-      <motion.div 
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 0.05, scale: 1 }}
-        transition={{ duration: 1.5, ease: "easeOut" }}
-        className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
-      >
-        {/* Giant quotation marks */}
-        <img 
-          src="/assets/quotes-bg.png" 
-          alt="Background quotation marks"
-          className="opacity-30 w-[500px]"
-          style={{ transform: "scale(4)", filter: "brightness(0) invert(1)" }}
-        />
-      </motion.div>
-      
-      {/* Floating colored shapes */}
-      <motion.div 
-        initial={{ opacity: 0, x: -100 }}
-        animate={{ opacity: 0.15, x: 0 }}
-        transition={{ duration: 2, delay: 0.5 }}
-        className="absolute top-[20%] left-[10%]"
-      >
-        <div className="w-40 h-40 rounded-full bg-white" />
-      </motion.div>
-      
-      <motion.div 
-        initial={{ opacity: 0, y: 100 }}
-        animate={{ opacity: 0.15, y: 0 }}
-        transition={{ duration: 2, delay: 0.8 }}
-        className="absolute bottom-[15%] right-[20%]"
-      >
-        <div className="w-32 h-32 rounded-full bg-white" />
-      </motion.div>
-      
-      <motion.div 
-        initial={{ opacity: 0, x: 100 }}
-        animate={{ opacity: 0.15, x: 0 }}
-        transition={{ duration: 2, delay: 1.1 }}
-        className="absolute top-[35%] right-[15%]"
-      >
-        <div className="w-24 h-24 rounded-full bg-white" />
-      </motion.div>
-    </div>
-  </div>
-);
 
 export function HeroSection() {
   return (
-    <section className="min-h-screen relative overflow-hidden bg-gradient-to-bl from-[#4ACB6B] to-[#1e486b]">
-      <div className="flex items-center justify-center h-screen">
-        <BackgroundLogo />
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-3xl mx-auto text-center">
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-4xl md:text-6xl font-bold leading-tight mb-6 text-white"
-            >
-              We help businesses transform ideas{" "}
-              <span className="text-white">
-                into results
-              </span>
-            </motion.h1>
+    <section className="pt-[100px] pb-0 px-6">
+      <div className="max-w-5xl mx-auto">
 
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-xl text-white/90 mb-8"
-            >
-              Global expertise. Local Impact. Strategy that delivers.
-            </motion.p>
+        <motion.p
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-[11px] font-medium tracking-[0.12em] uppercase text-[#00B09B] mb-5"
+        >
+          Advisory · Strategy · Execution
+        </motion.p>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="flex justify-center"
-            >
-              <Button 
-                size="lg" 
-                className="bg-white text-[#1e486b] hover:bg-white/90 gap-2"
-                onClick={() => {
-                  const section = document.getElementById('our-name');
-                  if (section) {
-                    section.scrollIntoView({ behavior: 'smooth' });
-                  }
-                }}
-              >
-                Learn More <ArrowRight className="h-4 w-4" />
-              </Button>
-            </motion.div>
+        <motion.h1
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="text-[#1A2233] mb-7"
+          style={{
+            fontFamily: "'DM Sans', sans-serif",
+            fontSize: "clamp(32px, 3.8vw, 52px)",
+            fontWeight: 600,
+            lineHeight: 1.15,
+          }}
+        >
+          Most companies don't have a strategy problem.{" "}
+          They have an{" "}
+          <em style={{ fontStyle: "normal", color: "#00B09B" }}>execution</em>{" "}
+          problem. We solve both.
+        </motion.h1>
 
-          </div>
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="text-[17px] leading-[1.8] text-gray-500 font-light max-w-2xl mb-9"
+        >
+          We diagnose what is actually breaking in your business, build the plan
+          to fix it, and lead the team that executes it. No guesswork. No generic
+          frameworks. Just clear thinking and real results.
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="flex flex-wrap gap-4 mb-12"
+        >
+          <a
+            href="#contact"
+            className="px-7 py-3.5 bg-[#1A2233] text-white text-[15px] font-medium rounded-[10px] hover:bg-[#00B09B] transition-colors duration-150"
+          >
+            Start your free diagnostic
+          </a>
+          <a
+            href="#approach"
+            className="px-7 py-3.5 bg-transparent text-[#1A2233] text-[15px] font-medium rounded-[10px] border-[1.5px] border-gray-200 hover:border-[#1A2233] transition-colors duration-150"
+          >
+            See our approach
+          </a>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="rounded-t-2xl overflow-hidden w-full"
+          style={{ height: "clamp(260px, 36vw, 480px)" }}
+        >
+          <img
+            src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1600&q=85&fit=crop"
+            alt="Postscriptworks strategic team session"
+            className="w-full h-full object-cover object-[center_30%]"
+          />
+        </motion.div>
+
+        <div className="grid grid-cols-3 border border-t-0 border-gray-200 rounded-b-2xl overflow-hidden mb-20">
+          {[
+            { num: "20+", label: "Years across Fortune 500 and growth-stage companies" },
+            { num: "Global", label: "Expert team — US, Philippines, and beyond" },
+            { num: "3-in-1", label: "Strategy, systems, and execution under one engagement" },
+          ].map(({ num, label }, i) => (
+            <div key={num} className={`p-6 ${i < 2 ? "border-r border-gray-200" : ""}`}>
+              <div style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 600 }} className="text-2xl text-[#1A2233] mb-1">{num}</div>
+              <div className="text-[13px] text-gray-400 leading-snug">{label}</div>
+            </div>
+          ))}
         </div>
+
       </div>
     </section>
   );

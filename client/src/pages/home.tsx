@@ -8,8 +8,9 @@ import { DidYouKnowSection } from "@/components/did-you-know-section";
 import { WhereWeComeIn } from "@/components/where-we-come-in";
 import { WhatWeDoSection } from "@/components/what-we-do-section";
 import { PostscriptDefinition } from "@/components/postscript-definition";
-
 import { motion } from "framer-motion";
+
+const dmSans = { fontFamily: "'DM Sans', sans-serif" };
 
 export default function Home() {
   return (
@@ -17,46 +18,56 @@ export default function Home() {
       <HeroSection />
       <PostscriptDefinition />
       <AboutSection />
-
-      <WhatWeDoSection />
-      <ServicesSection />
       <HowWeWorkSection />
-
+      <ServicesSection />
       <ChallengesSection />
+      <WhatWeDoSection />
       <DidYouKnowSection />
       <WhereWeComeIn />
 
-      <section id="contact" className="py-24 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="relative"
-            >
-              <div className="bg-[#f4e4d9] rounded-lg p-6 md:p-8">
-                <img
-                  src="/images/red-shoes.png"
-                  alt="Red shoes on a path with a forward arrow, representing the journey ahead"
-                  className="w-full h-auto rounded-md shadow-md object-cover"
-                  style={{ aspectRatio: "4/3" }}
-                />
-              </div>
-              <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-[#1e486b] rounded-full hidden md:block" />
-            </motion.div>
+      <section id="contact" className="py-20 px-6 bg-white">
+        <div className="max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-2 border border-gray-200 rounded-[20px] overflow-hidden">
 
-            <div>
-              <div className="text-center mb-10">
-                <h2 className="text-4xl md:text-5xl font-bold mb-4">Let's Get Started</h2>
-                <p className="text-xl text-gray-700 leading-relaxed">
-                  Marketing doesn't have to be overwhelming.
-                  Share a few details below, and we'll set up a call to see how our team can help.
-                </p>
+            <div className="relative min-h-[420px]">
+              <img
+                src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=900&q=85&fit=crop&crop=left"
+                alt="Postscriptworks team collaboration"
+                className="w-full h-full object-cover absolute inset-0"
+              />
+              <div className="absolute inset-0 bg-[#1A2233]/55 flex flex-col justify-end p-10">
+                <motion.div
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.7 }}
+                  viewport={{ once: true }}
+                >
+                  <h3
+                    className="text-white mb-2"
+                    style={{ ...dmSans, fontSize: "22px", fontWeight: 600, lineHeight: 1.3 }}
+                  >
+                    Let's find out where you're<br />leaving results on the table.
+                  </h3>
+                  <p className="text-[14px] text-white/70 leading-relaxed font-light">
+                    It takes 10 minutes to start. It changes how you see your business.
+                  </p>
+                </motion.div>
               </div>
+            </div>
+
+            <div className="p-12 bg-white">
+              <p className="text-[11px] font-medium tracking-[0.12em] uppercase text-[#00B09B] mb-3">
+                Ready to start
+              </p>
+              <h2
+                className="text-[#1A2233] mb-8"
+                style={{ ...dmSans, fontSize: "26px", fontWeight: 600, lineHeight: 1.3 }}
+              >
+                Start your free diagnostic
+              </h2>
               <ContactForm />
             </div>
+
           </div>
         </div>
       </section>
