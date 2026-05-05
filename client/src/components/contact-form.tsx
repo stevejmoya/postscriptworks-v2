@@ -42,9 +42,20 @@ export function ContactForm() {
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState(["", "", ""]);
   const [selecting, setSelecting] = useState(false);
+  const [somethingElseText, setSomethingElseText] = useState("");
+  const [showSomethingElse, setShowSomethingElse] = useState(false);
 
   const selectOption = (optionText: string, questionIdx: number) => {
+    if (questionIdx === 0 && optionText === "Something else") {
+      const updated = [...answers];
+      updated[0] = "Something else";
+      setAnswers(updated);
+      setShowSomethingElse(true);
+      return;
+    }
+
     setSelecting(true);
+    setShowSomethingElse(false);
     const updated = [...answers];
     updated[questionIdx] = optionText;
     setAnswers(updated);
@@ -52,6 +63,15 @@ export function ContactForm() {
       setSelecting(false);
       setStep(questionIdx + 1);
     }, 320);
+  };
+
+  const handleSomethingElseNext = () => {
+    if (!somethingElseText.trim()) return;
+    const updated = [...answers];
+    updated[0] = somethingElseText.trim();
+    setAnswers(updated);
+    setShowSomethingElse(false);
+    setStep(1);
   };
 
   const progressDots = [0, 1, 2, 3];
@@ -125,16 +145,59 @@ export function ContactForm() {
                 className="text-left px-4 py-3.5 rounded-xl text-[14px] transition-all duration-150 leading-snug"
                 style={{
                   fontFamily: "'DM Sans', sans-serif",
-                  border: answers[step] === opt ? "1.5px solid #00B09B" : "0.5px solid #E4E8EE",
-                  background: answers[step] === opt ? "#E6FFFA" : "#fff",
-                  color: answers[step] === opt ? "#1A2233" : "#4A5568",
-                  fontWeight: answers[step] === opt ? 500 : 400,
+                  border: answers[step] === opt || (opt === "Something else" && showSomethingElse)
+                    ? "1.5px solid #00B09B"
+                    : "0.5px solid #E4E8EE",
+                  background: answers[step] === opt || (opt === "Something else" && showSomethingElse)
+                    ? "#E6FFFA"
+                    : "#fff",
+                  color: answers[step] === opt || (opt === "Something else" && showSomethingElse)
+                    ? "#1A2233"
+                    : "#4A5568",
+                  fontWeight: answers[step] === opt || (opt === "Something else" && showSomethingElse)
+                    ? 500
+                    : 400,
                 }}
               >
                 {opt}
               </button>
             ))}
           </div>
+
+          {/* Something else text input */}
+          {showSomethingElse && (
+            <div className="mt-3">
+              <input
+                type="text"
+                autoFocus
+                value={somethingElseText}
+                onChange={(e) => setSomethingElseText(e.target.value)}
+                onKeyDown={(e) => { if (e.key === "Enter") handleSomethingElseNext(); }}
+                placeholder="Tell us what's on your mind..."
+                className="w-full px-4 py-3 rounded-xl text-[14px] outline-none transition-colors"
+                style={{
+                  fontFamily: "'DM Sans', sans-serif",
+                  border: "1.5px solid #00B09B",
+                  color: "#1A2233",
+                }}
+              />
+              <button
+                type="button"
+                onClick={handleSomethingElseNext}
+                disabled={!somethingElseText.trim()}
+                className="mt-2 w-full py-3 rounded-xl text-[14px] font-medium text-white transition-colors duration-150"
+                style={{
+                  fontFamily: "'DM Sans', sans-serif",
+                  background: somethingElseText.trim() ? "#1A2233" : "#CBD5E0",
+                  cursor: somethingElseText.trim() ? "pointer" : "not-allowed",
+                }}
+                onMouseEnter={(e) => { if (somethingElseText.trim()) (e.currentTarget.style.background = "#00B09B"); }}
+                onMouseLeave={(e) => { if (somethingElseText.trim()) (e.currentTarget.style.background = "#1A2233"); }}
+              >
+                Next
+              </button>
+            </div>
+          )}
         </div>
       )}
 
