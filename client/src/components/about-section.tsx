@@ -110,10 +110,10 @@ export function AboutSection() {
               className="text-[#1A2233] mb-4"
               style={{ ...dmSans, fontSize: "clamp(18px, 2vw, 24px)", fontWeight: 600, lineHeight: 1.3 }}
             >
-              Stephen Moya
+              Steve Moya
             </p>
             <p>
-              Stephen has spent over 20 years inside marketing, strategy, and operations across
+              Steve has spent over 20 years inside marketing, strategy, and operations across
               Fortune 500 brands and growth-stage companies. He has seen what breaks, what scales,
               and what just looks good on a slide deck but never ships.
             </p>
