@@ -128,11 +128,11 @@ export function AboutSection() {
             className="rounded-2xl overflow-hidden"
             style={{ height: "380px" }}
           >
-            <img
-              src="/Steve_Presenting.png"
-              alt="Stephen Moya presenting"
-              className="w-full h-full object-cover object-[center_15%]"
-            />
+           <img
+  src="/Steve_Room.jpeg"
+  alt="Stephen Moya presenting"
+  className="w-full h-full object-cover object-[center_top]"
+/>
           </motion.div>
         </motion.div>
 
