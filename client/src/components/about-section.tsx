@@ -56,19 +56,21 @@ export function AboutSection() {
             viewport={{ once: true }}
           >
             <div className="text-[15px] leading-[1.85] text-gray-500 font-light space-y-5">
-              <p>
-                We are a collective of cross-disciplined professionals: strategists, project managers, designers, copywriters, producers, art directors, animators, illustrators, and developers. Senior specialists assembled around each engagement based on what the work actually requires.
-              </p>
-              <p>
-                Built for companies that cannot afford the overhead of a large agency but need something
-                smarter than a freelancer. Remote-first, globally distributed, and built for speed. Our
-                clients get senior thinking without senior agency billing rates.
-              </p>
-              <p>
-                With over 20 years of successful partnerships across Fortune 500 brands and growth-stage
-                companies, our team has the depth to find what breaks, what scales, and what drives
-                real results.
-              </p>
+             <p>
+  We are a collective of cross-disciplined professionals: strategists, project managers, designers, copywriters, producers, art directors, animators, illustrators, and developers. Senior specialists assembled around each engagement based on what the work actually requires.
+</p>
+<p>
+  Postscriptworks helps organizations turn bold ideas into real results by aligning strategy, operations, and AI-enabled workflows to deliver measurable outcomes.
+</p>
+<p>
+  We work with leadership teams to bridge the gap between vision and execution. Whether launching new initiatives, optimizing marketing operations, or integrating AI into business workflows, we help companies move from concept to implementation with clarity and momentum.
+</p>
+<p>
+  As AI continues reshaping how organizations operate, we've focused on helping businesses bridge strategy, operations, client experience, and AI-enabled workflows in ways that create practical, measurable impact. Not generic frameworks, but systems and strategies designed to actually work in the real world.
+</p>
+<p>
+  Postscriptworks operates as a flexible extension of your team. Many organizations have strong ideas but lack the internal bandwidth or cross-functional coordination to bring them to life. We step in as strategic advisors and operational partners. Senior thinking, without senior agency billing rates, distributed across time zones and built for speed.
+</p>
             </div>
 
             {/* Chips */}
