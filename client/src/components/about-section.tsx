@@ -111,11 +111,13 @@ export function AboutSection() {
               Steve Moya
             </p>
             <p>
-              Steve has spent over 20 years in digital media sales, marketing, strategy, and operations, sitting inside Fortune 500 boardrooms and growth-stage pitches alike. He knows what breaks under pressure, what actually scales, and what just looks good on a slide deck but never ships.
-
+              Steve has spent over 20 years in digital media sales, marketing, strategy, and operations, sitting inside Fortune 500 boardrooms and growth-stage pitches alike. He understands what breaks under pressure, what actually scales, and what simply looks good on a slide deck but never ships.
             </p>
             <p>
-              Postscriptworks is the firm he built to bring that experience to the companies that need it most. Not the ones chasing generic frameworks, but the ones ready to build something that actually works.
+              As AI continues reshaping how organizations operate, Steve has focused Postscriptworks on helping businesses bridge strategy, operations, client experience, and AI-enabled workflows in ways that create practical, measurable impact.
+            </p>
+            <p>
+              Postscriptworks was built to bring that experience to companies that need clarity, execution, and operational alignment — not generic frameworks, but systems and strategies designed to actually work in the real world.
             </p>
           </div>
 
@@ -128,11 +130,11 @@ export function AboutSection() {
             className="rounded-2xl overflow-hidden"
             style={{ height: "380px" }}
           >
-           <img
-  src="/Steve_Room.jpeg"
-  alt="Stephen Moya presenting"
-  className="w-full h-full object-cover object-[center_top]"
-/>
+            <img
+              src="/Steve_Room.jpeg"
+              alt="Stephen Moya presenting"
+              className="w-full h-full object-cover object-[center_top]"
+            />
           </motion.div>
         </motion.div>
 
